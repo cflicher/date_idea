@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Date Idea #<%= @idea.id %></h3>
+  <h3><%= @idea.date_title %></h3>
 </div>
 
 <div class="row">
@@ -28,7 +28,7 @@
           Date Title
         </label>
 
-        <input type="text" id="date_title" name="date_title" placeholder="Date title" class="form-control" value="<%= @idea.date_title %>">
+        <input type="text" id="date_title" name="date_title" placeholder="Date Title" class="form-control" value="<%= @idea.date_title %>">
       </div>
 
       <!-- Label and input for date_description -->

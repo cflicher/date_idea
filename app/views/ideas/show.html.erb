@@ -1,18 +1,11 @@
 <div class="page-header">
-  <h3>Date Idea #<%= @idea.id %></h3>
+  <h3><%= @idea.date_title %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd>
-        <% if @idea.user.present? %>
-          <a href="/users/<%= @idea.user_id %>">
-            <%= @idea.user.email %>
-          </a>
-        <% end %>
-      </dd>
+
 
       <dt>Date Title</dt>
       <dd><%= @idea.date_title %></dd>
@@ -23,21 +16,18 @@
       <dt>Price Category</dt>
       <dd><%= @idea.price_category %></dd>
 
+      <dt>Creator</dt>
+      <dd>
+        <% if @idea.user.present? %>
+          <a href="/users/<%= @idea.user_id %>">
+            <%= @idea.user.username %>
+          </a>
+        <% end %>
+      </dd>
+
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/ideas" class="btn btn-primary">
-        Back
-      </a>
-      <% if current_user == @idea.user %>
-        <a href="/ideas/<%= @idea.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_idea/<%= @idea.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>
-    </div>
+
   </div>
 </div>
 
@@ -53,7 +43,7 @@
       <% @idea.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
-            <%= review.date_idea_id %>
+            <%= review.date_idea_rating_comment %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
@@ -225,7 +215,7 @@
       <% @idea.reviewers.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
-            <%= user.email %>
+            <%= user.username %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/users/<%= user.id %>" class="btn btn-primary">
@@ -242,4 +232,19 @@
       <% end %>
     </ul>
   </div>
+</div>
+
+
+<div class="btn-group btn-group-justified">
+  <a href="/ideas" class="btn btn-primary">
+    Back
+  </a>
+  <% if current_user == @idea.user %>
+    <a href="/ideas/<%= @idea.id %>/edit" class="btn btn-warning">
+      Edit
+    </a>
+    <a href="/delete_idea/<%= @idea.id %>" class="btn btn-danger" rel="nofollow">
+      Delete
+    </a>
+  <% end %>
 </div>

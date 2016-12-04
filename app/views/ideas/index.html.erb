@@ -99,25 +99,25 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
         <th>Date Title</th>
         <th>Date Description</th>
         <th>Price Category</th>
+        <th>User</th>
         <th>Actions</th>
       </tr>
 
       <% @ideas.each do |idea| %>
       <tr>
-        <td>
-          <% if idea.user.present? %>
-            <a href="/users/<%= idea.user.id %>">
-              <%= idea.user.email %>
-            </a>
-          <% end %>
-        </td>
         <td><%= idea.date_title %></td>
         <td><%= idea.date_description %></td>
         <td><%= idea.price_category %></td>
+        <td>
+          <% if idea.user.present? %>
+            <a href="/users/<%= idea.user.id %>">
+              <%= idea.user.username %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/ideas/<%= idea.id %>" class="btn btn-primary">Show</a>
 

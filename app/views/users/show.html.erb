@@ -1,24 +1,25 @@
 <div class="page-header">
-  <h3>User #<%= @user.id %></h3>
+  <h3><%= @user.username %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Email</dt>
-      <dd><%= @user.email %></dd>
-
-      <dt>Password</dt>
-      <dd><%= @user.password %></dd>
 
       <dt>Username</dt>
       <dd><%= @user.username %></dd>
+
+      <!-- <dt>Password</dt>
+      <dd><%= @user.password %></dd> -->
 
       <dt>First name</dt>
       <dd><%= @user.first_name %></dd>
 
       <dt>Last name</dt>
       <dd><%= @user.last_name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
 
     </dl>
 
@@ -36,7 +37,7 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Date_ideas
+        Date_Ideas
       </li>
 
       <% @user.date_ideas.each do |idea| %>
@@ -98,11 +99,11 @@
 
 <!-- A User has many helpful_ratings -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Helpful_ratings
+        Helpful_Ratings
       </li>
 
       <% @user.helpful_ratings.each do |helpful_rating| %>
@@ -127,15 +128,15 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- A User has many helpful_reviews -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Helpful_reviews
+        Helpful_Reviews
       </li>
 
       <% @user.helpful_reviews.each do |review| %>
@@ -160,21 +161,21 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- A User has many date_idea_reviews -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Date_idea_reviews
+        Date_Idea_Reviews
       </li>
 
       <% @user.date_idea_reviews.each do |idea| %>
         <li class="list-group-item">
           <a href="/ideas/<%= idea.id %>">
-            <%= idea.user_id %>
+            <%= idea.date_title %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
@@ -193,4 +194,4 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div> -->

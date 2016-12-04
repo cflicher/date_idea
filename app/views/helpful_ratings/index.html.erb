@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Helpful ratings
+    Helpful Ratings
     <a href="/helpful_ratings/new" class="btn btn-lg btn-success">New Helpful rating</a>
   </h1>
 </div>
@@ -20,7 +20,7 @@
         <td>
           <% if helpful_rating.review.present? %>
             <a href="/reviews/<%= helpful_rating.review.id %>">
-              <%= helpful_rating.review.date_idea_id %>
+              <%= helpful_rating.review.date_idea_rating_comment %>
             </a>
           <% end %>
         </td>
@@ -28,13 +28,13 @@
         <td>
           <% if helpful_rating.user.present? %>
             <a href="/users/<%= helpful_rating.user.id %>">
-              <%= helpful_rating.user.email %>
+              <%= helpful_rating.user.username %>
             </a>
           <% end %>
         </td>
         <td>
           <a href="/helpful_ratings/<%= helpful_rating.id %>" class="btn btn-primary">Show</a>
-          
+
           <% if current_user == helpful_rating.user %>
             <a href="/helpful_ratings/<%= helpful_rating.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_helpful_rating/<%= helpful_rating.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
