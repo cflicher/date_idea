@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Idea #<%= @idea.id %></h3>
+  <h3>Date Idea #<%= @idea.id %></h3>
 </div>
 
 <div class="row">
@@ -14,13 +14,13 @@
         <% end %>
       </dd>
 
-      <dt>Date title</dt>
+      <dt>Date Title</dt>
       <dd><%= @idea.date_title %></dd>
 
-      <dt>Date description</dt>
+      <dt>Date Description</dt>
       <dd><%= @idea.date_description %></dd>
 
-      <dt>Price category</dt>
+      <dt>Price Category</dt>
       <dd><%= @idea.price_category %></dd>
 
     </dl>
@@ -77,7 +77,7 @@
       <!-- Label and input for date_idea_id -->
       <div class="form-group">
         <label for="date_idea_id" class="control-label">
-          Date idea
+          Date Idea
         </label>
 
         <%= select_tag(:date_idea_id, options_from_collection_for_select(Idea.all, :id, :user_id), :class => "form-control") %>
@@ -89,7 +89,7 @@
       <!-- Label and input for date_idea_rating -->
       <div class="form-group">
         <label for="date_idea_rating" class="control-label">
-          Date idea rating
+          Date Idea Rating
         </label>
 
         <input type="text" id="date_idea_rating" name="date_idea_rating" placeholder="Date idea rating" class="form-control" value="">
@@ -98,7 +98,7 @@
       <!-- Label and input for date_idea_rating_comment -->
       <div class="form-group">
         <label for="date_idea_rating_comment" class="control-label">
-          Date idea rating comment
+          Date Idea Rating Comment
         </label>
 
         <input type="text" id="date_idea_rating_comment" name="date_idea_rating_comment" placeholder="Date idea rating comment" class="form-control" value="">

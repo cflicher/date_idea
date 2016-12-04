@@ -12,7 +12,8 @@ class Venue < ApplicationRecord
 
   # Validations
 
+  validates :venue_title, :presence => true
 
-
+  validates :venue_description, :presence => true
 
 end

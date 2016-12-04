@@ -1,15 +1,15 @@
 <!-- Validation failure messages -->
 <% if @idea.errors.any? %>
-  <% @idea.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @idea.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
-  <h3>Add Idea</h3>
+  <h3>Add Date Idea</h3>
 </div>
 
 <div class="row">
@@ -24,7 +24,7 @@
       <!-- Label and input for date_title -->
       <div class="form-group">
         <label for="date_title" class="control-label">
-          Date title
+          Date Title
         </label>
 
         <input type="text" id="date_title" name="date_title" placeholder="Date title" class="form-control" value="<%= @idea.date_title %>">
@@ -33,7 +33,7 @@
       <!-- Label and input for date_description -->
       <div class="form-group">
         <label for="date_description" class="control-label">
-          Date description
+          Date Description
         </label>
 
         <input type="text" id="date_description" name="date_description" placeholder="Date description" class="form-control" value="<%= @idea.date_description %>">
@@ -42,17 +42,30 @@
       <!-- Label and input for price_category -->
       <div class="form-group">
         <label for="price_category" class="control-label">
-          Price category
+          Price Category
         </label>
 
-        <input type="text" id="price_category" name="price_category" placeholder="Price category" class="form-control" value="<%= @idea.price_category %>">
+        <select type="text" class="form-control" id="price_category" name="price_category" placeholder="Select One" value="<%= @idea.price_category %>">
+          <option>Select One</option>
+          <option>Inexpensive</option>
+          <option>Mid-Range</option>
+          <option>Pricy</option>
+          <option>Luxurious</option>
+        </select>
+
       </div>
 
-      <button class="btn btn-success">
-        Create Idea
-      </button>
-      or
-      <a href="/ideas">Cancel</a>
-    </form>
-  </div>
+      <!-- <input type="text" id="price_category" name="price_category" placeholder="Price category" class="form-control" value="<%= @idea.price_category %>"> -->
+    </div>
+
+
+
+
+    <button class="btn btn-success">
+      Create Date Idea
+    </button>
+    or
+    <a href="/ideas">Cancel</a>
+  </form>
+</div>
 </div>

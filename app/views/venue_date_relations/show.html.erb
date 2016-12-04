@@ -9,7 +9,7 @@
       <dd>
         <% if @venue_date_relation.date.present? %>
           <a href="/ideas/<%= @venue_date_relation.date_id %>">
-            <%= @venue_date_relation.date.user_id %>
+            <%= @venue_date_relation.date.date_title %>
           </a>
         <% end %>
       </dd>
@@ -18,7 +18,7 @@
       <dd>
         <% if @venue_date_relation.venue.present? %>
           <a href="/venues/<%= @venue_date_relation.venue_id %>">
-            <%= @venue_date_relation.venue.date_id %>
+            <%= @venue_date_relation.venue.venue_title %>
           </a>
         <% end %>
       </dd>

@@ -42,7 +42,7 @@
       <% @user.date_ideas.each do |idea| %>
         <li class="list-group-item">
           <a href="/ideas/<%= idea.id %>">
-            <%= idea.user_id %>
+            <%= idea.date_title %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/ideas/<%= idea.id %>" class="btn btn-primary">

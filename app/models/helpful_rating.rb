@@ -7,6 +7,7 @@ class HelpfulRating < ApplicationRecord
 
   # Indirect associations
 
+
   # Validations
 
   validates :helpful_rate, :presence => true

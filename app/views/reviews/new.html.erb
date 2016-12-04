@@ -24,7 +24,7 @@
           Date idea
         </label>
 
-        <%= select_tag(:date_idea_id, options_from_collection_for_select(Idea.all, :id, :user_id, @review.date_idea_id), :class => "form-control") %>
+        <%= select_tag(:date_idea_id, options_from_collection_for_select(Idea.all, :id, :date_title, @review.date_idea_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
@@ -33,7 +33,7 @@
       <!-- Label and input for date_idea_rating -->
       <div class="form-group">
         <label for="date_idea_rating" class="control-label">
-          Date idea rating
+          Date Idea Rating (1-5)
         </label>
 
         <input type="text" id="date_idea_rating" name="date_idea_rating" placeholder="Date idea rating" class="form-control" value="<%= @review.date_idea_rating %>">

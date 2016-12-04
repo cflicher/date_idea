@@ -89,10 +89,10 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Date idea</th>
+        <th>Date Idea</th>
         <th>User</th>
-        <th>Date idea rating</th>
-        <th>Date idea rating comment</th>
+        <th>Date Idea Rating</th>
+        <th>Date Idea Rating Comment</th>
         <th>Actions</th>
       </tr>
 
@@ -101,14 +101,14 @@
         <td>
           <% if review.date_idea.present? %>
             <a href="/ideas/<%= review.date_idea.id %>">
-              <%= review.date_idea.user_id %>
+              <%= review.date_idea.date_title %>
             </a>
           <% end %>
         </td>
         <td>
           <% if review.user.present? %>
             <a href="/users/<%= review.user.id %>">
-              <%= review.user.email %>
+              <%= review.user.username %>
             </a>
           <% end %>
         </td>
@@ -116,7 +116,7 @@
         <td><%= review.date_idea_rating_comment %></td>
         <td>
           <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
-          
+
           <% if current_user == review.user %>
             <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

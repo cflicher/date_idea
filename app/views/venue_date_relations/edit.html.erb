@@ -24,7 +24,7 @@
           Date
         </label>
 
-        <%= select_tag(:date_id, options_from_collection_for_select(Idea.all, :id, :user_id, @venue_date_relation.date_id), :class => "form-control") %>
+        <%= select_tag(:date_id, options_from_collection_for_select(Idea.all, :id, :date_title, @venue_date_relation.date_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for venue_id -->
@@ -33,7 +33,7 @@
           Venue
         </label>
 
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :date_id, @venue_date_relation.venue_id), :class => "form-control") %>
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :venue_title, @venue_date_relation.venue_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for information -->

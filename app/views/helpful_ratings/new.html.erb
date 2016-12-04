@@ -24,7 +24,7 @@
           Review
         </label>
 
-        <%= select_tag(:review_id, options_from_collection_for_select(Review.all, :id, :date_idea_id, @helpful_rating.review_id), :class => "form-control") %>
+        <%= select_tag(:review_id, options_from_collection_for_select(Review.all, :id, :date_idea), @helpful_rating.review_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for helpful_rate -->
