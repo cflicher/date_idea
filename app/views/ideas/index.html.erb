@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Ideas
+    Date Ideas
     <a href="/ideas/new" class="btn btn-lg btn-success">New Idea</a>
   </h1>
 </div><div class="row mb-1">
@@ -120,7 +120,7 @@
         <td><%= idea.price_category %></td>
         <td>
           <a href="/ideas/<%= idea.id %>" class="btn btn-primary">Show</a>
-          
+
           <% if current_user == idea.user %>
             <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

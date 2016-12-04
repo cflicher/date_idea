@@ -12,4 +12,7 @@ class Venue < ApplicationRecord
 
   # Validations
 
+
+
+
 end

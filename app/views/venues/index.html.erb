@@ -3,13 +3,14 @@
     Venues
     <a href="/venues/new" class="btn btn-lg btn-success">New Venue</a>
   </h1>
-</div><div class="row mb-1">
+</div>
+<div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => "collapse", :id => "venues_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-  <%= f.label :date_id, "Date" %>
+  <!-- <%= f.label :date_id, "Date" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
       <%= f.text_field :date_id_gteq, :class => "form-control", :placeholder => "Date greater than or equal to" %>
@@ -17,7 +18,7 @@
     <div class='col-md-6'>
       <%= f.text_field :date_id_lteq, :class => "form-control", :placeholder => "Date less than or equal to" %>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <div class="form-group">
@@ -95,7 +96,7 @@
           });
       </script>
 
-        
+
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
