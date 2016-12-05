@@ -21,6 +21,9 @@
       <dt>E-mail</dt>
       <dd><%= @user.email %></dd>
 
+      <dt>Number of Ideas</dt>
+      <dd><%= @user.date_ideas.count %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -37,31 +40,31 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Date Ideas
+        <%= @user.username %>'s Ideas
       </li>
 
       <% @user.date_ideas.each do |idea| %>
-        <li class="list-group-item">
-          <a href="/ideas/<%= idea.id %>">
-            <%= idea.date_title %>
+      <li class="list-group-item">
+        <a href="/ideas/<%= idea.id %>">
+          <%= idea.date_title %>
+        </a>
+        <div class="btn-group btn-group-xs pull-right">
+          <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
           </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <!-- <%if current_user == idea.user %>
-              <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %> -->
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+          <!-- <%if current_user == idea.user %>
+          <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
+        <i class="fa fa-trash-o"></i>
+      </a>
+      <% end %> -->
+    </div>
+  </li>
+  <% end %>
+</ul>
+</div>
 </div>
 
 <!-- A User has many reviews -->
@@ -70,128 +73,140 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Reviews
+        Reviews of Other User's Ideas
       </li>
 
       <% @user.reviews.each do |review| %>
-        <li class="list-group-item">
-          <a href="/reviews/<%= review.id %>">
-            <%= review.date_idea_rating_comment %>
+
+      <li class="list-group-item">
+        Date Idea:
+        <br>
+        <a href="/ideas/<%= review.date_idea.id %>">
+          <%= review.date_idea.date_title %>
+        </a>
+<br>
+Review:
+        <br>
+        <a href="/reviews/<%= review.id %>">
+          <%= review.date_idea_rating_comment %>
+        </a>
+        <br>
+        Rating: (<%= review.date_idea_rating %> / 5)
+
+        <div class="btn-group btn-group-xs pull-right">
+          <a href="/reviews/<%= review.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
           </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/reviews/<%= review.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <!-- <%if current_user == review.user %>
-              <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %> -->
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+          <!-- <%if current_user == review.user %>
+          <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
+        <i class="fa fa-trash-o"></i>
+      </a>
+      <% end %> -->
+    </div>
+  </li>
+  <% end %>
+</ul>
+</div>
 </div>
 
 <!-- A User has many helpful_ratings -->
 
 <!-- <div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Helpful_Ratings
-      </li>
+<div class="col-md-12">
+<ul class="list-group">
+<li class="list-group-item list-group-item-info">
+Helpful_Ratings
+</li>
 
-      <% @user.helpful_ratings.each do |helpful_rating| %>
-        <li class="list-group-item">
-          <a href="/helpful_ratings/<%= helpful_rating.id %>">
-            <%= helpful_rating.review_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/helpful_ratings/<%= helpful_rating.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <%if current_user == helpful_rating.user %>
-              <a href="/helpful_ratings/<%= helpful_rating.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_helpful_rating/<%= helpful_rating.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% @user.helpful_ratings.each do |helpful_rating| %>
+<li class="list-group-item">
+<a href="/helpful_ratings/<%= helpful_rating.id %>">
+<%= helpful_rating.review_id %>
+</a>
+<div class="btn-group btn-group-xs pull-right">
+<a href="/helpful_ratings/<%= helpful_rating.id %>" class="btn btn-primary">
+<i class="fa fa-search-plus"></i>
+</a>
+<%if current_user == helpful_rating.user %>
+<a href="/helpful_ratings/<%= helpful_rating.id %>/edit" class="btn btn-warning">
+<i class="fa fa-edit"></i>
+</a>
+<a href="/delete_helpful_rating/<%= helpful_rating.id %>" class="btn btn-danger" rel="nofollow">
+<i class="fa fa-trash-o"></i>
+</a>
+<% end %>
+</div>
+</li>
+<% end %>
+</ul>
+</div>
 </div> -->
 
 <!-- A User has many helpful_reviews -->
 
 <!-- <div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Helpful_Reviews
-      </li>
+<div class="col-md-12">
+<ul class="list-group">
+<li class="list-group-item list-group-item-info">
+Helpful_Reviews
+</li>
 
-      <% @user.helpful_reviews.each do |review| %>
-        <li class="list-group-item">
-          <a href="/reviews/<%= review.id %>">
-            <%= review.date_idea_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/reviews/<%= review.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <%if current_user == review.user %>
-              <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% @user.helpful_reviews.each do |review| %>
+<li class="list-group-item">
+<a href="/reviews/<%= review.id %>">
+<%= review.date_idea_id %>
+</a>
+<div class="btn-group btn-group-xs pull-right">
+<a href="/reviews/<%= review.id %>" class="btn btn-primary">
+<i class="fa fa-search-plus"></i>
+</a>
+<%if current_user == review.user %>
+<a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
+<i class="fa fa-edit"></i>
+</a>
+<a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
+<i class="fa fa-trash-o"></i>
+</a>
+<% end %>
+</div>
+</li>
+<% end %>
+</ul>
+</div>
 </div> -->
 
 <!-- A User has many date_idea_reviews -->
 
 <!-- <div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Date_Idea_Reviews
-      </li>
+<div class="col-md-12">
+<ul class="list-group">
+<li class="list-group-item list-group-item-info">
+Date_Idea_Reviews
+</li>
 
-      <% @user.date_idea_reviews.each do |idea| %>
-        <li class="list-group-item">
-          <a href="/ideas/<%= idea.id %>">
-            <%= idea.date_title %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <%if current_user == idea.user %>
-              <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% @user.date_idea_reviews.each do |idea| %>
+<li class="list-group-item">
+<a href="/ideas/<%= idea.id %>">
+<%= idea.date_title %>
+</a>
+<div class="btn-group btn-group-xs pull-right">
+<a href="/ideas/<%= idea.id %>" class="btn btn-primary">
+<i class="fa fa-search-plus"></i>
+</a>
+<%if current_user == idea.user %>
+<a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
+<i class="fa fa-edit"></i>
+</a>
+<a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
+<i class="fa fa-trash-o"></i>
+</a>
+<% end %>
+</div>
+</li>
+<% end %>
+</ul>
+</div>
 </div> -->

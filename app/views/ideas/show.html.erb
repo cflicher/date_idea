@@ -46,10 +46,12 @@
           <a href="/reviews/<%= review.id %>">
             <%= review.date_idea_rating_comment %>
           </a>
-
+<br>
             (Rating = <%= review.date_idea_rating %> / 5)
-
+<br>
             (Reviewer: <a href="/users/<%= review.user.id %>"><%= review.user.username %></a>)
+<br>
+            (Number of Users who found this Review Helpful: <%= review.helpful_ratings.count %>)
           <div class="btn-group btn-group-sm pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
@@ -64,7 +66,7 @@
           </div>
         </li>
       <% end %>
-  <% if current_user != @idea.user %>
+  <% if current_user != @idea.user%>
       <li class="list-group-item">
         <form action="/create_review" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -148,7 +150,9 @@
 <a href="/venues/<%= venue_date_relation.venue.id %>">
             <%= venue_date_relation.venue.venue_title%>
           </a>
-             - Information:
+<br>
+             Information:
+             <br>
           <a href="/venue_date_relations/<%= venue_date_relation.id %>">
             <%= venue_date_relation.information %>
           </a>
@@ -195,7 +199,7 @@
         <input type="text" id="information" name="information" placeholder="Information" class="form-control" value="">
       </div>
 
-      <button class="btn btn-block btn-success">
+      <button class="btn btn-block btn-success" href="/ideas/<%= @idea.id %>">
         Add a New Venue to Your Date!
       </button>
     </form>

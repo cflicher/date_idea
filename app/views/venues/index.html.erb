@@ -117,6 +117,7 @@
         <!-- <th>Date</th> -->
         <th>Venue Title</th>
         <th>Venue Description</th>
+        <th># of Dates using this Venue</th>
         <!-- <th>Street Address</th>
         <th>City</th>
         <th>State</th>
@@ -130,6 +131,7 @@
         <!-- <td><%= venue.date_id %></td> -->
         <td><a href="/venues/<%= venue.id %>"><%= venue.venue_title %></a></td>
         <td><%= venue.venue_description %></td>
+        <td><%= venue.dates.count %></td>
         <!-- <td><%= venue.street_address %></td>
         <td><%= venue.city %></td>
         <td><%= venue.state %></td>
