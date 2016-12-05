@@ -108,7 +108,7 @@
 
       <% @ideas.each do |idea| %>
       <tr>
-        <td><%= idea.date_title %></td>
+        <td><a href="/ideas/<%= idea.id %>"><%= idea.date_title %></a></td>
         <td><%= idea.date_description %></td>
         <td><%= idea.price_category %></td>
         <td>
