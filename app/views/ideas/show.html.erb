@@ -104,11 +104,11 @@
 <% end %>
 <!-- A Idea has many venues -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venues Included in this Date:
+        Venues:
       </li>
 
       <% @idea.venues.each do |venue| %>
@@ -119,19 +119,19 @@
           <div class="btn-group btn-group-sm pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
-            </a>
+            </a> -->
             <!-- <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
             <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a> -->
-          </div>
+          <!-- </div>
         </li>
       <% end %>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- A Idea has many venue_date_relations -->
 
@@ -139,11 +139,15 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venues Included in this Date:
+        Venues - Information Related to this Date:
       </li>
 
       <% @idea.venue_date_relations.each do |venue_date_relation| %>
         <li class="list-group-item">
+<a href="/venues/<%= venue_date_relation.venue.id %>">
+            <%= venue_date_relation.venue.venue_title%>
+          </a>
+             - Information:
           <a href="/venue_date_relations/<%= venue_date_relation.id %>">
             <%= venue_date_relation.information %>
           </a>
@@ -191,7 +195,7 @@
       </div>
 
       <button class="btn btn-block btn-success">
-        Create Venue Date Relation
+        Add a New Venue to Your Date!
       </button>
     </form>
       </li>
