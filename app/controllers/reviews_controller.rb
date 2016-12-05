@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @helpful_rating = HelpfulRating.new
     @photo = Photo.new
     @review = Review.find(params[:id])
 
