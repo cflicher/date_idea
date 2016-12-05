@@ -49,14 +49,14 @@
             <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == idea.user %>
+            <!-- <%if current_user == idea.user %>
               <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
               <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
-            <% end %>
+            <% end %> -->
           </div>
         </li>
       <% end %>
@@ -82,14 +82,14 @@
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == review.user %>
+            <!-- <%if current_user == review.user %>
               <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
               <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
-            <% end %>
+            <% end %> -->
           </div>
         </li>
       <% end %>

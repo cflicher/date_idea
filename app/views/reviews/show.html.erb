@@ -37,7 +37,7 @@
 
 <!-- A Review has many photos -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
@@ -64,24 +64,24 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_photo" method="post" enctype="multipart/form-data">
+        <form action="/create_photo" method="post" enctype="multipart/form-data"> -->
       <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <!-- <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"> -->
 
       <!-- Label and input for review_id -->
-      <input type="hidden" name="review_id" value="<%= @review.id %>">
+      <!-- <input type="hidden" name="review_id" value="<%= @review.id %>"> -->
 
       <!-- Label and input for photo -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="photo" class="control-label">
           Photo
         </label>
 
         <input type="file" id="photo" name="photo" class="form-control">
-      </div>
+      </div> -->
 
       <!-- Label and input for photo_description -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="photo_description" class="control-label">
           Photo description
         </label>
@@ -96,18 +96,19 @@
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <!-- A Review has many helpful_ratings -->
 
+<% if current_user != @review.user %>
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Helpful_Ratings
+        Was this Review Helpful?
       </li>
 
-      <% @review.helpful_ratings.each do |helpful_rating| %>
+      <!-- <% @review.helpful_ratings.each do |helpful_rating| %>
         <li class="list-group-item">
           <a href="/helpful_ratings/<%= helpful_rating.id %>">
             <%= helpful_rating.review_id %>
@@ -124,7 +125,7 @@
             </a>
           </div>
         </li>
-      <% end %>
+      <% end %> -->
 
       <li class="list-group-item">
         <form action="/create_helpful_rating" method="post">
@@ -153,7 +154,7 @@
     </ul>
   </div>
 </div>
-
+<% end %>
 <!-- A Review has many helpful_users -->
 
 <div class="row">
@@ -172,11 +173,11 @@
             <a href="/users/<%= user.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+            <!-- <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
             <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
+              <i class="fa fa-trash-o"></i> -->
             </a>
           </div>
         </li>

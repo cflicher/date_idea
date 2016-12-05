@@ -9,8 +9,8 @@
     <%= search_form_for @q, :class => "collapse", :id => "venues_filters" do |f| %>
       <p class="lead">Narrow results:</p>
 
-        <div class="form-group">
-  <!-- <%= f.label :date_id, "Date" %>
+        <!-- <div class="form-group">
+  <%= f.label :date_id, "Date" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
       <%= f.text_field :date_id_gteq, :class => "form-control", :placeholder => "Date greater than or equal to" %>
@@ -18,10 +18,10 @@
     <div class='col-md-6'>
       <%= f.text_field :date_id_lteq, :class => "form-control", :placeholder => "Date less than or equal to" %>
     </div>
-  </div> -->
-</div>
+  </div>
+</div> -->
 
-<div class="form-group">
+<!-- <div class="form-group">
     <%= f.label :website_url_cont, "Website url contains" %>
     <%= f.text_field :website_url_cont, :class => "form-control", :placeholder => "Website url contains" %>
   </div>
@@ -104,7 +104,7 @@
     <% end %>
     <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#venues_filters">
       Show Filters
-    </a>
+    </a> -->
   </div>
 </div>
 
@@ -115,10 +115,10 @@
         <!-- <th>Date</th> -->
         <th>Venue Title</th>
         <th>Venue Description</th>
-        <th>Street Address</th>
+        <!-- <th>Street Address</th>
         <th>City</th>
         <th>State</th>
-        <th>Zip Code</th>
+        <th>Zip Code</th> -->
         <th>Website URL</th>
         <th>Actions</th>
       </tr>
@@ -128,15 +128,19 @@
         <!-- <td><%= venue.date_id %></td> -->
         <td><%= venue.venue_title %></td>
         <td><%= venue.venue_description %></td>
-        <td><%= venue.street_address %></td>
+        <!-- <td><%= venue.street_address %></td>
         <td><%= venue.city %></td>
         <td><%= venue.state %></td>
-        <td><%= venue.zip_code %></td>
-        <td><%= venue.website_url %></td>
+        <td><%= venue.zip_code %></td> -->
+  <% if venue.website_url != "" %>
+        <td><a href="<%= venue.website_url %>"> Link </a></td>
+<% else %>
+        <td></td>
+<% end %>
         <td>
           <a href="/venues/<%= venue.id %>" class="btn btn-primary">Show</a>
-          <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <!-- <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">Delete</a> -->
         </td>
       </tr>
       <% end %>

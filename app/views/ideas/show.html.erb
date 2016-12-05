@@ -50,20 +50,20 @@
             (Rating = <%= review.date_idea_rating %>)
 
             (Reviewer: <a href="/users/<%= review.user.id %>"><%= review.user.username %></a>)
-          <div class="btn-group btn-group-xs pull-right">
+          <div class="btn-group btn-group-sm pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
+            <!-- <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
             <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
-            </a>
+            </a> -->
           </div>
         </li>
       <% end %>
-
+  <% if current_user != @idea.user %>
       <li class="list-group-item">
         <form action="/create_review" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -101,6 +101,37 @@
     </ul>
   </div>
 </div>
+<% end %>
+<!-- A Idea has many venues -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Venues Included in this Date:
+      </li>
+
+      <% @idea.venues.each do |venue| %>
+        <li class="list-group-item">
+          <a href="/venues/<%= venue.id %>">
+            <%= venue.venue_title %>
+          </a>
+          <div class="btn-group btn-group-sm pull-right">
+            <a href="/venues/<%= venue.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
 <!-- A Idea has many venue_date_relations -->
 
@@ -108,7 +139,7 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venue_Date_Relations
+        Venues Included in this Date:
       </li>
 
       <% @idea.venue_date_relations.each do |venue_date_relation| %>
@@ -117,20 +148,22 @@
             <%= venue_date_relation.information %>
           </a>
 
-          <div class="btn-group btn-group-xs pull-right">
+          <div class="btn-group btn-group-sm pull-right">
             <a href="/venue_date_relations/<%= venue_date_relation.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
+  <% if current_user == @idea.user %>
             <a href="/venue_date_relations/<%= venue_date_relation.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
             <a href="/delete_venue_date_relation/<%= venue_date_relation.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
+            <% end %>
           </div>
         </li>
       <% end %>
-
+  <% if current_user == @idea.user %>
       <li class="list-group-item">
         <form action="/create_venue_date_relation" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -166,36 +199,7 @@
   </div>
 </div>
 
-<!-- A Idea has many venues -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Venues
-      </li>
-
-      <% @idea.venues.each do |venue| %>
-        <li class="list-group-item">
-          <a href="/venues/<%= venue.id %>">
-            <%= venue.venue_title %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/venues/<%= venue.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<% end %>
 
 <!-- A Idea has many reviewers -->
 

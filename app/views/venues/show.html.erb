@@ -14,6 +14,9 @@
       <dt>Venue Description</dt>
       <dd><%= @venue.venue_description %></dd>
 
+      <dt>Website URL</dt>
+      <dd><a href="<%= @venue.website_url %>"><%= @venue.website_url %></a></dd>
+
       <dt>Street Address</dt>
       <dd><%= @venue.street_address %></dd>
 
@@ -26,8 +29,7 @@
       <dt>Zip Code</dt>
       <dd><%= @venue.zip_code %></dd>
 
-      <dt>Website URL</dt>
-      <dd><a href="<%= @venue.website_url %>"><%= @venue.website_url %></a></dd>
+
 
     </dl>
 
@@ -35,68 +37,6 @@
   </div>
 </div>
 
-<!-- A Venue has many venue_date_relations -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Venue Date Relations
-      </li>
-
-      <% @venue.venue_date_relations.each do |venue_date_relation| %>
-        <li class="list-group-item">
-          <a href="/venue_date_relations/<%= venue_date_relation.id %>">
-            <%= venue_date_relation.date_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/venue_date_relations/<%= venue_date_relation.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/venue_date_relations/<%= venue_date_relation.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_venue_date_relation/<%= venue_date_relation.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_venue_date_relation" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for date_id -->
-      <div class="form-group">
-        <label for="date_id" class="control-label">
-          Date
-        </label>
-
-        <%= select_tag(:date_id, options_from_collection_for_select(Idea.all, :id, :date_title), :class => "form-control") %>
-      </div>
-
-      <!-- Label and input for venue_id -->
-      <input type="hidden" name="venue_id" value="<%= @venue.id %>">
-
-      <!-- Label and input for information -->
-      <div class="form-group">
-        <label for="information" class="control-label">
-          Information
-        </label>
-
-        <input type="text" id="information" name="information" placeholder="Information" class="form-control" value="">
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Venue Date Relation
-      </button>
-    </form>
-      </li>
-    </ul>
-  </div>
-</div>
 
 <!-- A Venue has many dates -->
 
@@ -116,11 +56,11 @@
             <a href="/ideas/<%= idea.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
+            <!-- <a href="/ideas/<%= idea.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
+            </a> -->
+            <!-- <a href="/delete_idea/<%= idea.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i> -->
             </a>
           </div>
         </li>
@@ -136,7 +76,7 @@
   <a href="/venues/<%= @venue.id %>/edit" class="btn btn-warning">
     Edit
   </a>
-  <a href="/delete_venue/<%= @venue.id %>" class="btn btn-danger" rel="nofollow">
+  <!-- <a href="/delete_venue/<%= @venue.id %>" class="btn btn-danger" rel="nofollow">
     Delete
-  </a>
+  </a> -->
 </div>
