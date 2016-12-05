@@ -20,6 +20,7 @@ class IdeasController < ApplicationController
     @venue_date_relation = VenueDateRelation.new
     @review = Review.new
     @idea = Idea.find(params[:id])
+    @venue = Venue.where(:id == Idea.find(params[:id]))
 
     render("ideas/show.html.erb")
   end

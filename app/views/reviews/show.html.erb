@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Review #<%= @review.id %></h3>
+  <h3> <%=@review.user.username%>'s Review of <%= @review.date_idea.date_title %></h3>
 </div>
 
 <div class="row">
@@ -9,7 +9,7 @@
       <dd>
         <% if @review.date_idea.present? %>
           <a href="/ideas/<%= @review.date_idea_id %>">
-            <%= @review.date_idea.user_id %>
+            <%= @review.date_idea.date_title %>
           </a>
         <% end %>
       </dd>
@@ -18,32 +18,20 @@
       <dd>
         <% if @review.user.present? %>
           <a href="/users/<%= @review.user_id %>">
-            <%= @review.user.email %>
+            <%= @review.user.username %>
           </a>
         <% end %>
       </dd>
 
-      <dt>Date idea rating</dt>
-      <dd><%= @review.date_idea_rating %></dd>
+      <dt>Date Idea Rating</dt>
+      <dd><%= @review.date_idea_rating %> / 5</dd>
 
-      <dt>Date idea rating comment</dt>
+      <dt>Date Idea Rating Comment</dt>
       <dd><%= @review.date_idea_rating_comment %></dd>
 
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/reviews" class="btn btn-primary">
-        Back
-      </a>
-      <% if current_user == @review.user %>
-        <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>
-    </div>
+
   </div>
 </div>
 
@@ -116,7 +104,7 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Helpful_ratings
+        Helpful_Ratings
       </li>
 
       <% @review.helpful_ratings.each do |helpful_rating| %>
@@ -150,7 +138,7 @@
       <div class="checkbox">
         <label for="helpful_rate">
           <input type="checkbox" id="helpful_rate" name="helpful_rate" value="1" <%= "checked" if @helpful_rating.helpful_rate %>>
-          Helpful rate
+          Helpful Rate
         </label>
       </div>
 
@@ -172,13 +160,13 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Helpful_users
+        Users who found this review helpful:
       </li>
 
       <% @review.helpful_users.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
-            <%= user.email %>
+            <%= user.username %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/users/<%= user.id %>" class="btn btn-primary">
@@ -195,4 +183,18 @@
       <% end %>
     </ul>
   </div>
+</div>
+
+<div class="btn-group btn-group-justified">
+  <a href="/reviews" class="btn btn-primary">
+    Back
+  </a>
+  <% if current_user == @review.user %>
+    <a href="/reviews/<%= @review.id %>/edit" class="btn btn-warning">
+      Edit
+    </a>
+    <a href="/delete_review/<%= @review.id %>" class="btn btn-danger" rel="nofollow">
+      Delete
+    </a>
+  <% end %>
 </div>

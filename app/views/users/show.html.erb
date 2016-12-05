@@ -76,7 +76,7 @@
       <% @user.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
-            <%= review.date_idea_id %>
+            <%= review.date_idea_rating_comment %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">

@@ -40,11 +40,16 @@
         Reviews
       </li>
 
+
       <% @idea.reviews.each do |review| %>
         <li class="list-group-item">
           <a href="/reviews/<%= review.id %>">
             <%= review.date_idea_rating_comment %>
           </a>
+
+            (Rating = <%= review.date_idea_rating %>)
+
+            (Reviewer: <a href="/users/<%= review.user.id %>"><%= review.user.username %></a>)
           <div class="btn-group btn-group-xs pull-right">
             <a href="/reviews/<%= review.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
@@ -65,13 +70,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for date_idea_id -->
-      <div class="form-group">
-        <label for="date_idea_id" class="control-label">
-          Date Idea
-        </label>
-
-        <%= select_tag(:date_idea_id, options_from_collection_for_select(Idea.all, :id, :user_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="date_idea_id" value="<%= @idea.id %>">
 
       <!-- Label and input for user_id -->
       <input type="hidden" name="user_id" value="<%= current_user.id %>">
@@ -109,14 +108,15 @@
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venue_date_relations
+        Venue_Date_Relations
       </li>
 
       <% @idea.venue_date_relations.each do |venue_date_relation| %>
         <li class="list-group-item">
           <a href="/venue_date_relations/<%= venue_date_relation.id %>">
-            <%= venue_date_relation.date_id %>
+            <%= venue_date_relation.information %>
           </a>
+
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venue_date_relations/<%= venue_date_relation.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
@@ -136,14 +136,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for date_id -->
-      <div class="form-group">
-        <label for="date_id" class="control-label">
-          Date
-        </label>
-
-        <%= select_tag(:date_id, options_from_collection_for_select(Idea.all, :id, :user_id), :class => "form-control") %>
-      </div>
+      <!-- Label and input for date_idea_id -->
+      <input type="hidden" name="date_id" id="<%=@idea.id%>" value="<%= @idea.id %>">
 
       <!-- Label and input for venue_id -->
       <div class="form-group">
@@ -151,7 +145,7 @@
           Venue
         </label>
 
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :date_id), :class => "form-control") %>
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :venue_title), :class => "form-control") %>
       </div>
 
       <!-- Label and input for information -->
@@ -184,7 +178,7 @@
       <% @idea.venues.each do |venue| %>
         <li class="list-group-item">
           <a href="/venues/<%= venue.id %>">
-            <%= venue.date_id %>
+            <%= venue.venue_title %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">
@@ -205,7 +199,7 @@
 
 <!-- A Idea has many reviewers -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
@@ -232,7 +226,7 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div> -->
 
 
 <div class="btn-group btn-group-justified">

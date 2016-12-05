@@ -26,7 +26,7 @@ class Review < ApplicationRecord
 
   validates :date_idea_rating, :presence => true
 
-  validates :date_idea_rating, :numericality => { :less_than => 5, :greater_than_or_equal_to => 1 }
+  validates :date_idea_rating, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }
 
   validates :date_idea_rating_comment, :uniqueness => { :scope => [:date_idea_id, :user_id] }
 

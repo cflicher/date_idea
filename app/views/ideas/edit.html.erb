@@ -46,8 +46,8 @@
           Price Category
         </label>
 
-        <select type="string" class="form-control" id="price_category" name="price_category"  value="<%= @idea.price_category %>">
-          <option>Select One</option>
+        <select type="string" class="form-control" id="price_category" name="price_category"  placeholder = "Select One" value="<%= @idea.price_category %>">
+          <option><%= @idea.price_category %></option>
           <option>Inexpensive</option>
           <option>Mid-Range</option>
           <option>Pricy</option>

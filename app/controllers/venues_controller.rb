@@ -9,7 +9,7 @@ class VenuesController < ApplicationController
   def show
     @venue_date_relation = VenueDateRelation.new
     @venue = Venue.find(params[:id])
-
+    
     render("venues/show.html.erb")
   end
 
