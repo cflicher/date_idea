@@ -43,13 +43,13 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if current_user.present? %>
-          <li><a href="/ideas"> Date Ideas</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/venues">Venues</a></li>
+          <li><a href="/ideas"> Date Ideas <i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i></a></li>
+          <li><a href="/users">Users <i class="fa fa-users fa-2x" aria-hidden="true"></i></a></li>
+          <li><a href="/venues">Venues <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i></a></li>
           <!-- <li><a href="/venue_date_relations">Venue Date Relations</a></li> -->
           <!-- <li><a href="/helpful_ratings">Helpful Ratings</a></li> -->
           <!-- <li><a href="/photos">Photos</a></li> -->
-          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/reviews">Reviews <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></li>
 
           <!-- <li><a href="/rails/info">Sitemap</a></li> -->
           <% end %>
@@ -60,24 +60,28 @@
             <li>
               <a href="/users/edit">
                 <%= current_user.username %>
+                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
               </a>
             </li>
 
             <li>
               <a href="/users/sign_out" data-method="delete" rel="nofollow">
                 Sign Out
+                <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
               </a>
             </li>
           <% else %>
             <li>
               <a href="/users/sign_up">
                 Sign Up
+                <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
               </a>
             </li>
 
             <li>
               <a href="/users/sign_in">
                 Sign In
+                <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>
               </a>
             </li>
           <% end %>

@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Reviews
-    <a href="/reviews/new" class="btn btn-lg btn-success">New Review</a>
+    <a href="/reviews/new" class="btn btn-md btn-success"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
@@ -115,12 +115,12 @@
         <td><%= review.date_idea_rating %> / 5</td>
         <td><%= review.date_idea_rating_comment %></td>
         <td>
-          <a href="/reviews/<%= review.id %>" class="btn btn-primary">Show</a>
+          <a href="/reviews/<%= review.id %>" class="btn btn-primary"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></a>
 
-          <% if current_user == review.user %>
+          <!-- <% if current_user == review.user %>
             <a href="/reviews/<%= review.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_review/<%= review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-          <% end %>
+          <% end %> -->
         </td>
       </tr>
       <% end %>

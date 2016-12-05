@@ -1,7 +1,8 @@
 <div class="page-header">
   <h1>
     Users
-    <a href="/users/new" class="btn btn-lg btn-success">New User</a>
+    <i class="fa fa-users fa-1x" aria-hidden="true"></i>
+    <!-- <a href="/users/new" class="btn btn-lg btn-success">New User</a> -->
   </h1>
 </div>
 
@@ -28,7 +29,7 @@
         <td><%= user.date_ideas.count%></td>
         </td>
         <td>
-          <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
+          <a href="/users/<%= user.id %>" class="btn btn-primary"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></a>
         </td>
       </tr>
       <% end %>
